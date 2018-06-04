@@ -9,10 +9,10 @@ class TestModuleAcount(unittest.TestCase):
 		Verify init acount is correct.  
 		"""
 
-		acount_1 = Acount('luz')
+		acount_1 = Acount('Jorge')
 
 		self.assertEqual(acount_1.get_acount_amount(), 0.0000)
-		self.assertEqual(acount_1.get_name_acount(), 'luz')
+		self.assertEqual(acount_1.get_name_acount(), 'Jorge')
 
 	def test_acount_name(self):
 
@@ -20,8 +20,8 @@ class TestModuleAcount(unittest.TestCase):
 		Verify that two acounts are different. 
 		"""
 
-		acount_luz_1 = Acount('luz_1')
-		acount_luz_2 = Acount('luz_2')
+		acount_luz_1 = Acount('Jorge')
+		acount_luz_2 = Acount('Gaston')
 
 		self.assertNotEqual(acount_luz_1.get_name_acount(), acount_luz_2.get_name_acount())
 
@@ -31,38 +31,20 @@ class TestModuleAcount(unittest.TestCase):
 		Verify add item in acount are correct. 
 		"""
 
-		acount_1 = Acount('Panaderia')
+		acount_1 = Acount('Jorge')
 
-		acount_1.add_item('media_luna', 1, 10.0000)
+		acount_1.add_item('Compra Lunes', 1, 10.0000)
 		self.assertEqual(acount_1.get_acount_amount(), 10.0000)
 
-		acount_1.add_item('media_luna', 1, 10.00001)
-		self.assertEqual(acount_1.get_acount_amount(), 20.00001)
+		acount_1.add_item('Compra Martes', 1, 10.0000)
+		self.assertEqual(acount_1.get_acount_amount(), 20.0000)
 
-		acount_1.add_item('media_luna', 1, 10.00009)
-		self.assertEqual(acount_1.get_acount_amount(), 30.0001)
+		acount_1.add_item('Pago Lunes', 1, -10.0000)
+		self.assertEqual(acount_1.get_acount_amount(), 10.0000)
 		
-		acount_1.add_item('media_luna', 1, 10.00004)
-		self.assertEqual(acount_1.get_acount_amount(), 40.00014)
+		acount_1.add_item('Pago Martes', 1, -50.0000)
+		self.assertEqual(acount_1.get_acount_amount(), -40.0000)
 	
-	def test_acount_cancel_item(self):
-
-		"""
-		Verify cancel items in acount are correct. 
-		"""
-
-		acount_1 = Acount('luz')
-
-		acount_1.add_item('media_luna', 10, 10.0000)
-
-		acount_1.cancel_item('media_luna', 1, 10.0000)
-		self.assertEqual(acount_1.get_acount_amount(),90.0000)
-
-		acount_1.cancel_item('media_luna', 2, 10.0000)
-		self.assertEqual(acount_1.get_acount_amount(), 70.0000)
-			
-		acount_1.cancel_item('media_luna', 3, 10.0000)
-		self.assertEqual(acount_1.get_acount_amount(), 40.0000)
 
 	def test_journal_init(self):
 
@@ -81,9 +63,9 @@ class TestModuleAcount(unittest.TestCase):
 		"""
 
 		journal = Journal()
-		journal.add_acount('luz')
+		journal.add_acount('Jorge')
 
-		acount = journal.get_acount('luz')
+		acount = journal.get_acount('Jorge')
 		acount.add_item('media_luna', 1, 10.0000)
 		
 		self.assertEqual(journal.get_journal_amount(), 10.0000)
