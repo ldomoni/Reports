@@ -19,3 +19,7 @@ class Item(object):
 
 	def get_unit_price(self):
 		return self.__unit_price
+
+class ItemAcount(Item):
+	def __init__(self, description, amount):
+		super(ItemAcount, self).__init__(description, 1, amount)

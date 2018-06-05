@@ -3,6 +3,15 @@ from Acount import  *
 class Journal(object):
 	def __init__(self):
 		self.__acounts= []
+	
+	"""
+	Private methods.
+	"""
+
+	def __get_acount(self, name_acount):
+		for acount in self.__acounts:
+			if acount.get_name_acount() == name_acount:
+				return acount
 
 	"""
 	Public methods.
@@ -16,8 +25,3 @@ class Journal(object):
 	
 	def get_number_acounts(self):
 		return len(self.__acounts)
-
-	def get_acount(self, name_acount):
-		for acount in self.__acounts:
-			if acount.get_name_acount() == name_acount:
-				return acount

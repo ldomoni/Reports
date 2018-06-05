@@ -15,5 +15,5 @@ class Acount(object):
 	def get_acount_amount(self):
 		return sum([item.get_item_amount() for item in self.__items])
 	
-	def add_item(self, description, unit_price, quantity):
-		self.__items.append(Item(description, unit_price, quantity))
+	def add_item(self, description, amount):
+		self.__items.append(ItemAcount(description, amount))

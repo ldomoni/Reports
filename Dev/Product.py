@@ -1,6 +1,6 @@
 class Product(object):
 
-	def __init__(self, name_product, stock, alert_stock, unit_price):
+	def __init__(self, name_product, stock, alert_stock):
 		self.__name= name_product
 		self.__stock= stock
 		self.__alert_stock= alert_stock
@@ -33,7 +33,7 @@ class Product(object):
 
 	def del_stock(self, quantity_stock):
 		if not quantity_stock <= self.__stock:
-			raise Exception('Monto de stock menor a la venta requerida.')
+			raise Exception('Monto de stock menor a la cantidad ingresada para la venta.')
 
 		self.__stock= self.__stock - quantity_stock
 

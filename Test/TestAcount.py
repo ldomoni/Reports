@@ -1,6 +1,8 @@
-import unittest, os
+import unittest, os, sys
 from colour_runner.runner import ColourTextTestRunner
-from Dev.Acount import *
+
+sys.path.insert(0, os.path.join(os.getcwd(), '../Dev/'))
+from Acount import *
 
 class TestModuleAcount(unittest.TestCase):
 	def test_acount_init(self):
@@ -33,16 +35,16 @@ class TestModuleAcount(unittest.TestCase):
 
 		acount_1 = Acount('Jorge')
 
-		acount_1.add_item('Compra Lunes', 1, 10.0000)
+		acount_1.add_item('Compra Lunes', 10.0000)
 		self.assertEqual(acount_1.get_acount_amount(), 10.0000)
 
-		acount_1.add_item('Compra Martes', 1, 10.0000)
+		acount_1.add_item('Compra Martes', 10.0000)
 		self.assertEqual(acount_1.get_acount_amount(), 20.0000)
 
-		acount_1.add_item('Pago Lunes', 1, -10.0000)
+		acount_1.add_item('Pago Lunes', -10.0000)
 		self.assertEqual(acount_1.get_acount_amount(), 10.0000)
 		
-		acount_1.add_item('Pago Martes', 1, -50.0000)
+		acount_1.add_item('Pago Martes', -50.0000)
 		self.assertEqual(acount_1.get_acount_amount(), -40.0000)
 	
 

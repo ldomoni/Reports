@@ -1,6 +1,8 @@
-from Journal import *
-import unittest, os
 from colour_runner.runner import ColourTextTestRunner
+import unittest, os, sys
+
+sys.path.insert(0, os.path.join(os.getcwd(), '../Dev/'))
+from Journal import *
 
 class TestModuleAcount(unittest.TestCase):
 	def test_journal_init(self):
@@ -40,7 +42,7 @@ class TestModuleAcount(unittest.TestCase):
 			journal.add_acount(acount)
 
 			self.assertEqual(journal.get_number_acounts(), index)
-
+	
 if __name__ == '__main__':
 	os.system('clear')
 	suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleAcount)
