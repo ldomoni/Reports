@@ -4,9 +4,18 @@ class Product(object):
 		self.__name= name_product
 		self.__stock= stock
 		self.__alert_stock= alert_stock
-		self.__alert= False
 
+		if stock > alert_stock:
+			self.__alert= False
+		else:
+			self.__alert= False
 
+	def __eq__(self, other_product):
+		if self.__name == other_product.__name:
+			return True
+
+		return False
+	
 	"""
 	Private methods.
 	"""	
@@ -23,6 +32,9 @@ class Product(object):
 	"""
 
 	def get_stock_alert(self):
+		return self.__alert_stock
+
+	def get_alert(self):
 		return self.__alert
 
 	def get_name_product(self):

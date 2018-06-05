@@ -4,7 +4,7 @@ import unittest, os, sys
 sys.path.insert(0, os.path.join(os.getcwd(), '../Dev/'))
 from Journal import *
 
-class TestModuleAcount(unittest.TestCase):
+class TestModuleJournal(unittest.TestCase):
 	def test_journal_init(self):
 
 		"""
@@ -24,8 +24,21 @@ class TestModuleAcount(unittest.TestCase):
 		journal = Journal()
 		journal.add_acount('Jorge')
 
-		acount = journal.get_acount('Jorge')
-		acount.add_item('media_luna', 1, 10.0000)
+		
+		self.assertEqual(journal.get_number_acounts(), 1)
+		self.assertEqual(journal.is_acount_in_journal('Jorge'), True)
+		self.assertEqual(journal.is_acount_in_journal('Pablo'), False)
+	
+	def test_journal_add_item_acount(self):
+
+		"""
+		Verify add item acount in journal is correct.
+		"""
+
+		journal = Journal()
+		journal.add_acount('Jorge')
+
+		journal.add_item_acount('Jorge', 'Capitan del espacio', 10.0000)
 		
 		self.assertEqual(journal.get_journal_amount(), 10.0000)
 	
@@ -45,6 +58,6 @@ class TestModuleAcount(unittest.TestCase):
 	
 if __name__ == '__main__':
 	os.system('clear')
-	suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleAcount)
+	suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleJournal)
 	ColourTextTestRunner(verbosity=2).run(suite)
 	

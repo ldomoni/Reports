@@ -16,16 +16,20 @@ class TestModuleAcount(unittest.TestCase):
 		self.assertEqual(acount_1.get_acount_amount(), 0.0000)
 		self.assertEqual(acount_1.get_name_acount(), 'Jorge')
 
-	def test_acount_name(self):
+	def test_acount_differents(self):
 
 		"""
 		Verify that two acounts are different. 
 		"""
 
-		acount_luz_1 = Acount('Jorge')
-		acount_luz_2 = Acount('Gaston')
+		acount_1 = Acount('Jorge')
+		acount_2 = Acount('Gaston')
+		acount_3 = Acount('Jorge')
 
-		self.assertNotEqual(acount_luz_1.get_name_acount(), acount_luz_2.get_name_acount())
+		self.assertNotEqual(acount_1, acount_2)
+		self.assertNotEqual(acount_2, acount_3)
+		self.assertEqual(acount_1, acount_3)
+
 
 	def test_acount_add_item(self):
 
