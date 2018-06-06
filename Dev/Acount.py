@@ -8,7 +8,9 @@ class Acount(object):
 	def __eq__(self, other_acount):
 		if self.__name == other_acount.__name:
 			return True
+
 		return False
+
 	"""
 	Public methods.
 	"""

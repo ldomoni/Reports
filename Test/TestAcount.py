@@ -51,8 +51,7 @@ class TestModuleAcount(unittest.TestCase):
 		acount_1.add_item('Pago Martes', -50.0000)
 		self.assertEqual(acount_1.get_acount_amount(), -40.0000)
 	
-
-
+	
 if __name__ == '__main__':
 	os.system('clear')
 	suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleAcount)

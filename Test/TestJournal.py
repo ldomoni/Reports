@@ -23,7 +23,6 @@ class TestModuleJournal(unittest.TestCase):
 
 		journal = Journal()
 		journal.add_acount('Jorge')
-
 		
 		self.assertEqual(journal.get_number_acounts(), 1)
 		self.assertEqual(journal.is_acount_in_journal('Jorge'), True)
@@ -56,6 +55,7 @@ class TestModuleJournal(unittest.TestCase):
 
 			self.assertEqual(journal.get_number_acounts(), index)
 	
+
 if __name__ == '__main__':
 	os.system('clear')
 	suite = unittest.TestLoader().loadTestsFromTestCase(TestModuleJournal)
